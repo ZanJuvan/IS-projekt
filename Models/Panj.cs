@@ -6,9 +6,8 @@ namespace BeeOrganizer.Models;
 public class Panj
 {
     [DatabaseGenerated(DatabaseGeneratedOption.None)]
-    public int CebeljnjakID { get; set; }
-    public string? Naslov { get; set; }
-    public int Lokacija { get; set; }
+    public int PanjID { get; set; }
+    public string? Naziv { get; set; }
     
     public Cebeljnjak? Cebeljnjak { get; set; }
 }
