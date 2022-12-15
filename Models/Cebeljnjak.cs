@@ -10,6 +10,10 @@ public class Cebeljnjak
     public string? Naslov { get; set; }
     public int Lokacija { get; set; }
 
-    public Uporabnik? Uporabnik { get; set; }
+    public ApplicationUser Uporabnik { get; set; }
+
     public ICollection<Panj>? Panji { get; set; }
+    
+    public ICollection<Prihodek>? Prihodki { get; set; }
+    public ICollection<Odhodek>? Odhodki { get; set; }
 }

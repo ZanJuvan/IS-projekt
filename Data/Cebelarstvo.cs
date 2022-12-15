@@ -1,9 +1,10 @@
 using BeeOrganizer.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace BeeOrganizer.Data
 {
-    public class Cebelarstvo : DbContext
+    public class Cebelarstvo : IdentityDbContext<ApplicationUser>
     {
         public Cebelarstvo(DbContextOptions<Cebelarstvo> options) : base(options)
         {
@@ -13,7 +14,6 @@ namespace BeeOrganizer.Data
         public DbSet<Odhodek> Odhodki { get; set; }
         public DbSet<Prihodek> Prihodki { get; set; }
         public DbSet<Panj> Panji { get; set; }
-        public DbSet<Uporabnik> Uporabniki { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -21,7 +21,7 @@ namespace BeeOrganizer.Data
             modelBuilder.Entity<Odhodek>().ToTable("Odhodek");
             modelBuilder.Entity<Prihodek>().ToTable("Prihodek");
             modelBuilder.Entity<Panj>().ToTable("Panj");
-            modelBuilder.Entity<Uporabnik>().ToTable("Uporabnik");
+            base.OnModelCreating(modelBuilder);
         }
     }
 }

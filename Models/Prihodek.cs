@@ -12,5 +12,5 @@ public class Prihodek
     public int Vrednost { get; set; }
     public DateTime Datum { get; set; }
 
-    public Uporabnik? Uporabnik { get; set; }
+    public Cebeljnjak? Cebeljnjak { get; set; }
 }

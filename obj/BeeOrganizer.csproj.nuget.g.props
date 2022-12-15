@@ -22,5 +22,10 @@
     <PkgMessagePackAnalyzer Condition=" '$(PkgMessagePackAnalyzer)' == '' ">C:\Users\Uporabnik\.nuget\packages\messagepackanalyzer\2.1.152</PkgMessagePackAnalyzer>
     <PkgMicrosoft_CodeAnalysis_Analyzers Condition=" '$(PkgMicrosoft_CodeAnalysis_Analyzers)' == '' ">C:\Users\Uporabnik\.nuget\packages\microsoft.codeanalysis.analyzers\3.3.2</PkgMicrosoft_CodeAnalysis_Analyzers>
     <PkgMicrosoft_CodeAnalysis_AnalyzerUtilities Condition=" '$(PkgMicrosoft_CodeAnalysis_AnalyzerUtilities)' == '' ">C:\Users\Uporabnik\.nuget\packages\microsoft.codeanalysis.analyzerutilities\3.3.0</PkgMicrosoft_CodeAnalysis_AnalyzerUtilities>
+    <PkgGlimpse Condition=" '$(PkgGlimpse)' == '' ">C:\Users\Uporabnik\.nuget\packages\glimpse\1.8.6</PkgGlimpse>
+    <PkgGlimpse_AspNet Condition=" '$(PkgGlimpse_AspNet)' == '' ">C:\Users\Uporabnik\.nuget\packages\glimpse.aspnet\1.8.0</PkgGlimpse_AspNet>
+    <PkgGlimpse_Mvc5 Condition=" '$(PkgGlimpse_Mvc5)' == '' ">C:\Users\Uporabnik\.nuget\packages\glimpse.mvc5\1.5.3</PkgGlimpse_Mvc5>
+    <PkgGlimpse_Ado Condition=" '$(PkgGlimpse_Ado)' == '' ">C:\Users\Uporabnik\.nuget\packages\glimpse.ado\1.7.3</PkgGlimpse_Ado>
+    <PkgGlimpse_EF6 Condition=" '$(PkgGlimpse_EF6)' == '' ">C:\Users\Uporabnik\.nuget\packages\glimpse.ef6\1.6.5</PkgGlimpse_EF6>
   </PropertyGroup>
 </Project>

@@ -1,0 +1,51 @@
+
+@model IEnumerable<BeeOrganizer.Models.Cebeljnjak>
+
+@using Microsoft.AspNetCore.Identity
+
+@inject SignInManager<ApplicationUser > SignInManager
+@inject UserManager<ApplicationUser > UserManager
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Naslov)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Lokacija)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+    @if (item.Uporabnik.Id == UserManager.GetUserId(User))
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Naslov)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Lokacija)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.CebeljnjakID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.CebeljnjakID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.CebeljnjakID">Delete</a>
+            </td>
+        </tr>
+    }
+        
+}
+    </tbody>
+</table>

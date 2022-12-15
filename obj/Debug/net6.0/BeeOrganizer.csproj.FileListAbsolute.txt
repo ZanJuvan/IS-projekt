@@ -307,3 +307,8 @@ D:\Github\IS-projekt\obj\Debug\net6.0\refint\BeeOrganizer.dll
 D:\Github\IS-projekt\obj\Debug\net6.0\BeeOrganizer.pdb
 D:\Github\IS-projekt\obj\Debug\net6.0\BeeOrganizer.genruntimeconfig.cache
 D:\Github\IS-projekt\obj\Debug\net6.0\ref\BeeOrganizer.dll
+D:\Github\IS-projekt\bin\Debug\net6.0\Glimpse.Core.dll
+D:\Github\IS-projekt\bin\Debug\net6.0\Glimpse.Ado.dll
+D:\Github\IS-projekt\bin\Debug\net6.0\Glimpse.AspNet.dll
+D:\Github\IS-projekt\bin\Debug\net6.0\Glimpse.EF6.dll
+D:\Github\IS-projekt\bin\Debug\net6.0\Glimpse.Mvc5.dll
