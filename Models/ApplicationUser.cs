@@ -1,11 +1,14 @@
 using Microsoft.AspNetCore.Identity;
+using System.ComponentModel.DataAnnotations;
 
 namespace BeeOrganizer.Models;
 
 public class ApplicationUser : IdentityUser
 {
-     //public int Id { get; set; }
+     [Key]
+     public int InternalId { get; set; }
      public string? FirstName { get; set; }
      public string? LastName { get; set; }
      public string? City { get; set; }
+     public List<Cebeljnjak>? Cebeljnjaki { get; set; }
 }

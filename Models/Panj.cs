@@ -5,9 +5,13 @@ namespace BeeOrganizer.Models;
 
 public class Panj
 {
-    [DatabaseGenerated(DatabaseGeneratedOption.None)]
-    public int PanjID { get; set; }
+    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    public int IdentityID { get; set; }
     public string? Naziv { get; set; }
+
+    public List<Evidenca> Evidence { get; set;}
     
-    public Cebeljnjak? Cebeljnjak { get; set; }
+    [ForeignKey("Cebeljnjak")]
+    public int CebeljnjakID { get; set; }
+    public Cebeljnjak Cebeljnjak { get; set; }
 }

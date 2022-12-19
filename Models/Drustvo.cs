@@ -3,15 +3,15 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BeeOrganizer.Models;
 
-public class Cebeljnjak
+public class Drustvo
 {
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int ID { get; set; }
-    public string? Naslov { get; set; }
+    public string Naziv { get; set; }
+    public string? Lokacija { get; set; }
 
-    [ForeignKey("ApplicationUser")]
-    public int UporabnikId { get; set; }
+    public int AdminId { get; set; }
 
-    public List<Panj> Panji { get; set; }
+    public List<Dogodek>? Dogodeki { get; set; }
     
 }

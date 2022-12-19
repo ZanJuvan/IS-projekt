@@ -3,14 +3,17 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BeeOrganizer.Models;
 
-public class Prihodek
+public class Evidenca
 {
-    [DatabaseGenerated(DatabaseGeneratedOption.None)]
-    public int PrihodekID { get; set; }
+
+    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    public int ID { get; set; }
     public string Vrsta { get; set; }
     public int Količina { get; set; }
     public int Vrednost { get; set; }
     public DateTime Datum { get; set; }
 
-    public Cebeljnjak? Cebeljnjak { get; set; }
+    [ForeignKey("Panj")]
+    public int PanjId { get; set; }
+    public Panj Panj { get; set; }
 }

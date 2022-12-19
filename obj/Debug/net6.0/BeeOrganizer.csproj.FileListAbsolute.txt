@@ -291,11 +291,6 @@ D:\Github\IS-projekt\obj\Debug\net6.0\BeeOrganizer.MvcApplicationPartsAssemblyIn
 D:\Github\IS-projekt\obj\Debug\net6.0\BeeOrganizer.MvcApplicationPartsAssemblyInfo.cache
 D:\Github\IS-projekt\obj\Debug\net6.0\BeeOrganizer.RazorAssemblyInfo.cache
 D:\Github\IS-projekt\obj\Debug\net6.0\BeeOrganizer.RazorAssemblyInfo.cs
-D:\Github\IS-projekt\obj\Debug\net6.0\staticwebassets\msbuild.BeeOrganizer.Microsoft.AspNetCore.StaticWebAssets.props
-D:\Github\IS-projekt\obj\Debug\net6.0\staticwebassets\msbuild.build.BeeOrganizer.props
-D:\Github\IS-projekt\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.BeeOrganizer.props
-D:\Github\IS-projekt\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.BeeOrganizer.props
-D:\Github\IS-projekt\obj\Debug\net6.0\staticwebassets.pack.json
 D:\Github\IS-projekt\obj\Debug\net6.0\staticwebassets.build.json
 D:\Github\IS-projekt\obj\Debug\net6.0\staticwebassets.development.json
 D:\Github\IS-projekt\obj\Debug\net6.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
@@ -307,8 +302,3 @@ D:\Github\IS-projekt\obj\Debug\net6.0\refint\BeeOrganizer.dll
 D:\Github\IS-projekt\obj\Debug\net6.0\BeeOrganizer.pdb
 D:\Github\IS-projekt\obj\Debug\net6.0\BeeOrganizer.genruntimeconfig.cache
 D:\Github\IS-projekt\obj\Debug\net6.0\ref\BeeOrganizer.dll
-D:\Github\IS-projekt\bin\Debug\net6.0\Glimpse.Core.dll
-D:\Github\IS-projekt\bin\Debug\net6.0\Glimpse.Ado.dll
-D:\Github\IS-projekt\bin\Debug\net6.0\Glimpse.AspNet.dll
-D:\Github\IS-projekt\bin\Debug\net6.0\Glimpse.EF6.dll
-D:\Github\IS-projekt\bin\Debug\net6.0\Glimpse.Mvc5.dll

@@ -8,8 +8,6 @@
     ".NETCoreApp,Version=v6.0": {
       "BeeOrganizer/1.0.0": {
         "dependencies": {
-          "Glimpse.EF6": "1.6.5",
-          "Glimpse.Mvc5": "1.5.3",
           "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": "6.0.10",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.10",
           "Microsoft.AspNetCore.Identity.UI": "6.0.10",
@@ -19,58 +17,6 @@
         },
         "runtime": {
           "BeeOrganizer.dll": {}
-        }
-      },
-      "Glimpse/1.8.6": {
-        "runtime": {
-          "lib/net45/Glimpse.Core.dll": {
-            "assemblyVersion": "1.8.6.0",
-            "fileVersion": "1.8.6.0"
-          }
-        }
-      },
-      "Glimpse.Ado/1.7.3": {
-        "dependencies": {
-          "Glimpse": "1.8.6"
-        },
-        "runtime": {
-          "lib/net45/Glimpse.Ado.dll": {
-            "assemblyVersion": "1.7.3.0",
-            "fileVersion": "1.7.3.0"
-          }
-        }
-      },
-      "Glimpse.AspNet/1.8.0": {
-        "dependencies": {
-          "Glimpse": "1.8.6"
-        },
-        "runtime": {
-          "lib/net45/Glimpse.AspNet.dll": {
-            "assemblyVersion": "1.8.0.0",
-            "fileVersion": "1.8.0.0"
-          }
-        }
-      },
-      "Glimpse.EF6/1.6.5": {
-        "dependencies": {
-          "Glimpse.Ado": "1.7.3"
-        },
-        "runtime": {
-          "lib/net45/Glimpse.EF6.dll": {
-            "assemblyVersion": "1.6.5.0",
-            "fileVersion": "1.6.5.0"
-          }
-        }
-      },
-      "Glimpse.Mvc5/1.5.3": {
-        "dependencies": {
-          "Glimpse.AspNet": "1.8.0"
-        },
-        "runtime": {
-          "lib/net45/Glimpse.Mvc5.dll": {
-            "assemblyVersion": "1.5.3.0",
-            "fileVersion": "1.5.3.0"
-          }
         }
       },
       "Humanizer.Core/2.8.26": {
@@ -2377,41 +2323,6 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
-    },
-    "Glimpse/1.8.6": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-jubTSNDTgjCcCLibXAB28hnC2MPRjjG5PIrx4Wc5ZILsx8qt3bdEGGIS2LRMQk8mcGHWhEFFPLWFaJQJyWtS9Q==",
-      "path": "glimpse/1.8.6",
-      "hashPath": "glimpse.1.8.6.nupkg.sha512"
-    },
-    "Glimpse.Ado/1.7.3": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-q3Cio5ueEjGhcRBtMeCALm2kaVkDDKn7w4OPHGnP+k3ISD0+q05gF5x3RMwVlCUGh6qJbQUXkUsK9+ihj6HQ1A==",
-      "path": "glimpse.ado/1.7.3",
-      "hashPath": "glimpse.ado.1.7.3.nupkg.sha512"
-    },
-    "Glimpse.AspNet/1.8.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-j0RHna8TyN/dM4tZNXaNYcFjHb0G82EqGraOhBE1DTZ8PpYXCby1xYghTzmI1WbSVEGpk1rTUW6CrVFzVpnm9A==",
-      "path": "glimpse.aspnet/1.8.0",
-      "hashPath": "glimpse.aspnet.1.8.0.nupkg.sha512"
-    },
-    "Glimpse.EF6/1.6.5": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-rS8lcyXbjPUkaRY1Oh3LjoeOTHZtZ0j2w8QUW/PEj9ANC/hCUzPgApXjAJ3hi5XEYvFycmVoTYJBRoQ7El5ROQ==",
-      "path": "glimpse.ef6/1.6.5",
-      "hashPath": "glimpse.ef6.1.6.5.nupkg.sha512"
-    },
-    "Glimpse.Mvc5/1.5.3": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-CRSTu7iqsZy5sw4z65SrJVq5YjDlGsdaAiDvMx4/iCYnCA4+HLttiF4A0/xAVWtJFcLMsKPgOMxu1PKNJzjezw==",
-      "path": "glimpse.mvc5/1.5.3",
-      "hashPath": "glimpse.mvc5.1.5.3.nupkg.sha512"
     },
     "Humanizer.Core/2.8.26": {
       "type": "package",

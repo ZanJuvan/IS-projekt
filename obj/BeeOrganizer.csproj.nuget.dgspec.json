@@ -1,32 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Github\\IS-projekt\\BeeOrganizer.csproj": {}
+    "D:\\GitHub\\IS-projekt\\BeeOrganizer.csproj": {}
   },
   "projects": {
-    "D:\\Github\\IS-projekt\\BeeOrganizer.csproj": {
+    "D:\\GitHub\\IS-projekt\\BeeOrganizer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Github\\IS-projekt\\BeeOrganizer.csproj",
+        "projectUniqueName": "D:\\GitHub\\IS-projekt\\BeeOrganizer.csproj",
         "projectName": "BeeOrganizer",
-        "projectPath": "D:\\Github\\IS-projekt\\BeeOrganizer.csproj",
-        "packagesPath": "C:\\Users\\Uporabnik\\.nuget\\packages\\",
-        "outputPath": "D:\\Github\\IS-projekt\\obj\\",
+        "projectPath": "D:\\GitHub\\IS-projekt\\BeeOrganizer.csproj",
+        "packagesPath": "C:\\Users\\zanju\\.nuget\\packages\\",
+        "outputPath": "D:\\GitHub\\IS-projekt\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Uporabnik\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\zanju\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -45,14 +38,6 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
-            "Glimpse.EF6": {
-              "target": "Package",
-              "version": "[1.6.5, )"
-            },
-            "Glimpse.Mvc5": {
-              "target": "Package",
-              "version": "[1.5.3, )"
-            },
             "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": {
               "target": "Package",
               "version": "[6.0.10, )"
@@ -97,7 +82,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.404\\RuntimeIdentifierGraph.json"
         }
       }
     }
