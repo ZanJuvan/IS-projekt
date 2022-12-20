@@ -6,7 +6,7 @@ namespace BeeOrganizer.Models;
 public class Panj
 {
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-    public int IdentityID { get; set; }
+    public int PanjID { get; set; }
     public string? Naziv { get; set; }
 
     public List<Evidenca> Evidence { get; set;}
