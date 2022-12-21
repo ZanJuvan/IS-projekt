@@ -37,6 +37,9 @@ namespace BeeOrganizer.Migrations
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("DrustvoId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Email")
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
@@ -87,6 +90,8 @@ namespace BeeOrganizer.Migrations
                         .HasColumnType("nvarchar(256)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("DrustvoId");
 
                     b.HasIndex("NormalizedEmail")
                         .HasDatabaseName("EmailIndex");
@@ -149,7 +154,7 @@ namespace BeeOrganizer.Migrations
 
                     b.HasIndex("DrustvoId");
 
-                    b.ToTable("Dogodek");
+                    b.ToTable("Dogodek", (string)null);
                 });
 
             modelBuilder.Entity("BeeOrganizer.Models.Drustvo", b =>
@@ -386,6 +391,17 @@ namespace BeeOrganizer.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens", (string)null);
+                });
+
+            modelBuilder.Entity("BeeOrganizer.Models.ApplicationUser", b =>
+                {
+                    b.HasOne("BeeOrganizer.Models.Drustvo", "Drustvo")
+                        .WithMany()
+                        .HasForeignKey("DrustvoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Drustvo");
                 });
 
             modelBuilder.Entity("BeeOrganizer.Models.Cebeljnjak", b =>

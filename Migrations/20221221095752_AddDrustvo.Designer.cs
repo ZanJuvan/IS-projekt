@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BeeOrganizer.Migrations
 {
     [DbContext(typeof(Cebelarstvo))]
-    [Migration("20221220171923_Initial2")]
-    partial class Initial2
+    [Migration("20221221095752_AddDrustvo")]
+    partial class AddDrustvo
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -38,6 +38,9 @@ namespace BeeOrganizer.Migrations
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("DrustvoId")
+                        .HasColumnType("int");
 
                     b.Property<string>("Email")
                         .HasMaxLength(256)
@@ -89,6 +92,8 @@ namespace BeeOrganizer.Migrations
                         .HasColumnType("nvarchar(256)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("DrustvoId");
 
                     b.HasIndex("NormalizedEmail")
                         .HasDatabaseName("EmailIndex");
@@ -151,7 +156,7 @@ namespace BeeOrganizer.Migrations
 
                     b.HasIndex("DrustvoId");
 
-                    b.ToTable("Dogodek");
+                    b.ToTable("Dogodek", (string)null);
                 });
 
             modelBuilder.Entity("BeeOrganizer.Models.Drustvo", b =>
@@ -198,6 +203,9 @@ namespace BeeOrganizer.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool>("MenjavaMatice")
+                        .HasColumnType("bit");
+
                     b.Property<bool>("Mirnost")
                         .HasColumnType("bit");
 
@@ -218,6 +226,9 @@ namespace BeeOrganizer.Migrations
 
                     b.Property<bool>("ZalogaHrane")
                         .HasColumnType("bit");
+
+                    b.Property<int>("donosMedu")
+                        .HasColumnType("int");
 
                     b.HasKey("ID");
 
@@ -382,6 +393,17 @@ namespace BeeOrganizer.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens", (string)null);
+                });
+
+            modelBuilder.Entity("BeeOrganizer.Models.ApplicationUser", b =>
+                {
+                    b.HasOne("BeeOrganizer.Models.Drustvo", "Drustvo")
+                        .WithMany()
+                        .HasForeignKey("DrustvoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Drustvo");
                 });
 
             modelBuilder.Entity("BeeOrganizer.Models.Cebeljnjak", b =>

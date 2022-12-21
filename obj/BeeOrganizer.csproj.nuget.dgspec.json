@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\GitHub\\IS-projekt\\BeeOrganizer.csproj": {}
+    "C:\\Users\\LENOVO\\Documents\\Git\\IS-projekt\\BeeOrganizer.csproj": {}
   },
   "projects": {
-    "D:\\GitHub\\IS-projekt\\BeeOrganizer.csproj": {
+    "C:\\Users\\LENOVO\\Documents\\Git\\IS-projekt\\BeeOrganizer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\GitHub\\IS-projekt\\BeeOrganizer.csproj",
+        "projectUniqueName": "C:\\Users\\LENOVO\\Documents\\Git\\IS-projekt\\BeeOrganizer.csproj",
         "projectName": "BeeOrganizer",
-        "projectPath": "D:\\GitHub\\IS-projekt\\BeeOrganizer.csproj",
-        "packagesPath": "C:\\Users\\zanju\\.nuget\\packages\\",
-        "outputPath": "D:\\GitHub\\IS-projekt\\obj\\",
+        "projectPath": "C:\\Users\\LENOVO\\Documents\\Git\\IS-projekt\\BeeOrganizer.csproj",
+        "packagesPath": "C:\\Users\\LENOVO\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\LENOVO\\Documents\\Git\\IS-projekt\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\zanju\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\LENOVO\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
