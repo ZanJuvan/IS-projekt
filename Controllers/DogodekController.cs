@@ -12,7 +12,7 @@ using Microsoft.AspNetCore.Identity;
 
 namespace BeeOrganizer.Controllers
 {
-    [Authorize(Roles = "Administrator, Drustvenik")]
+    //[Authorize(Roles = "Administrator, Drustvenik")]
     public class DogodekController : Controller
     {
         private readonly Cebelarstvo _context;

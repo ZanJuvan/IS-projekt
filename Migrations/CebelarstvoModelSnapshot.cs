@@ -37,7 +37,7 @@ namespace BeeOrganizer.Migrations
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("DrustvoId")
+                    b.Property<int?>("DrustvoId")
                         .HasColumnType("int");
 
                     b.Property<string>("Email")
@@ -397,9 +397,7 @@ namespace BeeOrganizer.Migrations
                 {
                     b.HasOne("BeeOrganizer.Models.Drustvo", "Drustvo")
                         .WithMany()
-                        .HasForeignKey("DrustvoId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("DrustvoId");
 
                     b.Navigation("Drustvo");
                 });

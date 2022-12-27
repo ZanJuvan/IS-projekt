@@ -4,7 +4,8 @@ using Microsoft.AspNetCore.Identity;
 using BeeOrganizer.Models;
 
 var builder = WebApplication.CreateBuilder(args);
-var connectionString = builder.Configuration.GetConnectionString("Server");
+//var connectionString = builder.Configuration.GetConnectionString("Server");
+var connectionString = builder.Configuration.GetConnectionString("SchoolContext");
 
 builder.Services.AddDbContext<Cebelarstvo>(options =>
     options.UseSqlServer(connectionString));

@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BeeOrganizer.Migrations
 {
     [DbContext(typeof(Cebelarstvo))]
-    [Migration("20221221095752_AddDrustvo")]
-    partial class AddDrustvo
+    [Migration("20221223115322_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -39,7 +39,7 @@ namespace BeeOrganizer.Migrations
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("DrustvoId")
+                    b.Property<int?>("DrustvoId")
                         .HasColumnType("int");
 
                     b.Property<string>("Email")
@@ -399,9 +399,7 @@ namespace BeeOrganizer.Migrations
                 {
                     b.HasOne("BeeOrganizer.Models.Drustvo", "Drustvo")
                         .WithMany()
-                        .HasForeignKey("DrustvoId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("DrustvoId");
 
                     b.Navigation("Drustvo");
                 });

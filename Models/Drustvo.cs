@@ -6,11 +6,12 @@ namespace BeeOrganizer.Models;
 public class Drustvo
 {
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-    public int ID { get; set; }
+    public int Id { get; set; }
     public string Naziv { get; set; }
     public string? Lokacija { get; set; }
 
-    public int AdminId { get; set; }
+    [ForeignKey("ApplicationUser")]
+    public string ApplicationUserId { get; set; }
 
     public List<Dogodek>? Dogodeki { get; set; }
     
