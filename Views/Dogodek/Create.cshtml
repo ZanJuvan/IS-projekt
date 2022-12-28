@@ -24,13 +24,11 @@
             </div>
             <div class="form-group">
                 <label asp-for="Opis" class="control-label"></label>
-                <input asp-for="Opis" class="form-control" />
+                <textarea  asp-for="Opis" class="form-control" rows="3"></textarea>
                 <span asp-validation-for="Opis" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="DrustvoId" class="control-label"></label>
-                <input asp-for="DrustvoId" class="form-control" value="@ViewBag.user.Email" />
-                <!--<select asp-for="DrustvoId" class ="form-control" asp-items="ViewBag.DrustvoId"></select>-->
+                <input type="hidden" asp-for="DrustvoId" class="form-control" value="@ViewBag.DrustvoId" />
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />

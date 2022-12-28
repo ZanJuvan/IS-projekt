@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.Identity;
 
 namespace BeeOrganizer.Controllers
 {
+    [Authorize]
     public class DrustvoController : Controller
     {
         private readonly Cebelarstvo _context;
@@ -26,7 +27,7 @@ namespace BeeOrganizer.Controllers
         // GET: Dogodek/Create
         public IActionResult Create()
         {
-            ViewData["userId"] = GetUserIdAsync();
+            ViewBag.UserId = GetLoggedInUserId().Result;
             return View();
         }
 
@@ -35,25 +36,38 @@ namespace BeeOrganizer.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,Naziv,Lokacija,Opis,DrustvoId")] Dogodek dogodek)
+        public async Task<IActionResult> Create([Bind("ID,Naziv,Lokacija,ApplicationUserId")] Drustvo drustvo)
         {
             
             if (ModelState.IsValid)
             {
-                _context.Add(dogodek);
+                _context.Add(drustvo);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+
+                var user = await _userManager.GetUserAsync(HttpContext.User);
+                await _userManager.AddToRoleAsync(user, "Drustvenik");
+                user.DrustvoId = drustvo.Id;
+                await _userManager.UpdateAsync(user);
+
+
+                return RedirectToAction("Index", "Home");
             }
-            ViewData["DrustvoId"] = new SelectList(_context.Drustvo, "ID", "ID", dogodek.DrustvoId);
-            return View(dogodek);
+            
+            return View();
         }
-        public async Task<string> GetUserIdAsync()
+        public async Task<string?> GetLoggedInUserId()
         {
             var user = await _userManager.GetUserAsync(User);
-            var id = user.Id;
-            return id;
+            if (user == null)
+            {
+                return null;
+            }
+
+            return user.Id;
         }
+
     }
+
 
     
 }

@@ -4,8 +4,11 @@
 @inject UserManager<ApplicationUser > UserManager
 
 <ul class="navbar-nav">
-@if (Model.drustvoId == 0 )
+@if (ViewBag.drustvoId < 0 )
 {
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="Dogodek" asp-action="Index">Dogodek</a>
+    </li>
     <li class="nav-item">
         <a class="nav-link text-dark" asp-area="" asp-controller="Drustvo" asp-action="Create">Ustvari društvo</a>
     </li>

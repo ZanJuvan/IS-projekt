@@ -1,4 +1,4 @@
-@model BeeOrganizer.Models.Dogodek
+@model BeeOrganizer.Models.Drustvo
 
 @{
     ViewData["Title"] = "Create";
@@ -6,7 +6,7 @@
 
 <h1>Create</h1>
 
-<h4>Dogodek</h4>
+<h4>Društvo</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -24,8 +24,7 @@
             </div>
             
             <div class="form-group">
-                <label asp-for="DrustvoId" class="control-label"></label>
-                <input asp-for="DrustvoId" class="form-control" value="@ViewBag.userId" />
+                <input type="hidden" asp-for="ApplicationUserId" class="form-control" value="@ViewBag.UserId" />
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />

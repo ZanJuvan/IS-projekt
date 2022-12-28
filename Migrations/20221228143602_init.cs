@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace BeeOrganizer.Migrations
 {
-    public partial class initial : Migration
+    public partial class init : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -27,15 +27,15 @@ namespace BeeOrganizer.Migrations
                 name: "Drustvo",
                 columns: table => new
                 {
-                    ID = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Naziv = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Lokacija = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    AdminId = table.Column<int>(type: "int", nullable: false)
+                    ApplicationUserId = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Drustvo", x => x.ID);
+                    table.PrimaryKey("PK_Drustvo", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -64,7 +64,6 @@ namespace BeeOrganizer.Migrations
                 columns: table => new
                 {
                     Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    InternalId = table.Column<int>(type: "int", nullable: false),
                     FirstName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     LastName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     City = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -91,7 +90,7 @@ namespace BeeOrganizer.Migrations
                         name: "FK_AspNetUsers_Drustvo_DrustvoId",
                         column: x => x.DrustvoId,
                         principalTable: "Drustvo",
-                        principalColumn: "ID");
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -112,7 +111,7 @@ namespace BeeOrganizer.Migrations
                         name: "FK_Dogodek_Drustvo_DrustvoId",
                         column: x => x.DrustvoId,
                         principalTable: "Drustvo",
-                        principalColumn: "ID",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 

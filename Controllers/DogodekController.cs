@@ -51,28 +51,43 @@ namespace BeeOrganizer.Controllers
         }
 
         // GET: Dogodek/Create
-        public IActionResult Create()
+        [Authorize(Roles = "Administrator, Drustvenik")]
+        public async Task<IActionResult>  Create()
         {
-            ViewData["user"]  =  _userManager.GetUserAsync(User);
-            ViewData["DrustvoId"] = new SelectList(_context.Drustvo, "ID", "ID");
+            var id = await GetLoggedInUserDrustvoId();
+            ViewData["DrustvoId"] = id;
+            ViewData["Drustvo"] = GetDrustvoById(id ?? -1).Result;
             return View();
         }
 
         // POST: Dogodek/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize(Roles = "Administrator, Drustvenik")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,Naziv,Lokacija,Opis,DrustvoId")] Dogodek dogodek)
+        public async Task<IActionResult> Create([Bind("ID,Naziv,Lokacija,Opis,Drustvo,DrustvoId")] Dogodek dogodek)
         {
+            
             
             if (ModelState.IsValid)
             {
+                var res = GetLoggedInUserDrustvoId().Result;
+                dogodek.Drustvo = GetDrustvoById(res ?? -1).Result;
                 _context.Add(dogodek);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
+            } else
+            {
+            foreach (var key in ModelState.Keys)
+                {
+                    foreach (var error in ModelState[key].Errors)
+                    {
+                        Console.WriteLine(error.ErrorMessage);
+                    }
+                }
             }
-            ViewData["DrustvoId"] = new SelectList(_context.Drustvo, "ID", "ID", dogodek.DrustvoId);
+            //ViewData["DrustvoId"] = new SelectList(_context.Drustvo, "ID", "ID", dogodek.DrustvoId);
             return View(dogodek);
         }
 
@@ -170,6 +185,31 @@ namespace BeeOrganizer.Controllers
         private bool DogodekExists(int id)
         {
           return (_context.Dogodek?.Any(e => e.ID == id)).GetValueOrDefault();
+        }
+
+        public async Task<int?> GetLoggedInUserDrustvoId()
+        {
+            var user = await _userManager.GetUserAsync(User);
+            if (user == null)
+            {
+                return null;
+            }
+
+            return user.DrustvoId;
+        }
+        public async Task<Drustvo> GetDrustvoById(int drustvoId)
+        {
+            // Find the Drustvo with the specified ID in the database
+            var drustvo = await _context.Drustvo.FirstOrDefaultAsync(d => d.Id == drustvoId);
+
+            // If the Drustvo was not found, return null
+            if (drustvo == null)
+            {
+                return null;
+            }
+
+            // Otherwise, return the Drustvo object
+            return drustvo;
         }
     }
 }

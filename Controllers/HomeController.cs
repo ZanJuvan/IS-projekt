@@ -18,7 +18,7 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
-        var drustvoId = GetDrustvoIdAsync();
+        ViewData["drustvoId"] = GetDrustvoId().Result;
         return View();
     }
 
@@ -33,11 +33,21 @@ public class HomeController : Controller
         return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
     }
 
-    public async Task<int?> GetDrustvoIdAsync()
+    public  async Task<int?> GetDrustvoId()
     {
-        var user = await _userManager.GetUserAsync(User);
-        var drustvoId = user.DrustvoId;
-        if (drustvoId == null ) drustvoId = 0;
+        int? drustvoId = 0;
+        var uporabnik = await _userManager.GetUserAsync(User);
+        if (uporabnik != null)
+        {
+            if (uporabnik.DrustvoId == null ) drustvoId = -2;
+            else drustvoId = uporabnik.DrustvoId;
+        } else
+        {
+            drustvoId = -1;
+        }
+        
         return drustvoId;
     }
+
+     
 }

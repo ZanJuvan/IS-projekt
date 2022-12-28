@@ -14,7 +14,7 @@ public class Dogodek
 
     [ForeignKey("Drustvo")]
     public int DrustvoId { get; set; }
-    public Drustvo Drustvo { get; set; }
+    public Drustvo? Drustvo { get; set; }
     
     
 }
