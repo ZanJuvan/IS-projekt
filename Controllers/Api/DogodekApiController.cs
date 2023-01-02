@@ -10,7 +10,7 @@ using BeeOrganizer.Models;
 
 namespace BeeOrganizer.Controllers_Api
 {
-    [Route("api/[controller]")]
+    [Route("api/v1/dogodek")]
     [ApiController]
     public class DogodekApiController : ControllerBase
     {
