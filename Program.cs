@@ -1,23 +1,22 @@
 using BeeOrganizer.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
+using Swashbuckle;
 using BeeOrganizer.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 //var connectionString = builder.Configuration.GetConnectionString("Server");
-var connectionString = builder.Configuration.GetConnectionString("SchoolContext");
+var connectionString = builder.Configuration.GetConnectionString("Server");
 
-builder.Services.AddDbContext<Cebelarstvo>(options =>
-    options.UseSqlServer(connectionString));
+builder.Services.AddDbContext<Cebelarstvo>(options => options.UseSqlServer(connectionString));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-//builder.Services.AddDbContext<Cebelarstvo>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("Server")));
-
-
 builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = false)
     .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<Cebelarstvo>();
+
+builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
@@ -35,6 +34,12 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
+
+app.UseSwagger();
+app.UseSwaggerUI(c =>
+{
+c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+});
 
 app.UseRouting();
 app.UseAuthentication();;

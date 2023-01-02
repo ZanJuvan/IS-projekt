@@ -37,15 +37,25 @@
                 @Html.DisplayFor(modelItem => item.Lokacija)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Opis)
+                @if (item.Opis.Length >50)
+                {
+                    Write(item.Opis.Substring(0, 50)); 
+                    Write("...");
+                }else{
+                    Write(Html.DisplayFor(modelItem => item.Opis));
+                }
+                
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Drustvo.Id)
+                @Html.DisplayFor(modelItem => item.Drustvo.Naziv)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+                <a asp-action="Details" asp-route-id="@item.ID">Details</a> 
+                @if (item.Drustvo.Id == ViewBag.UserDrustvoId)
+                {
+                     <a asp-action="Edit" asp-route-id="@item.ID"> | Edit</a> 
+                }
+                <!--| <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>-->
             </td>
         </tr>
 }

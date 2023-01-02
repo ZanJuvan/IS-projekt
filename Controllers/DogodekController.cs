@@ -28,6 +28,8 @@ namespace BeeOrganizer.Controllers
         public async Task<IActionResult> Index()
         {
             var cebelarstvo = _context.Dogodek.Include(d => d.Drustvo);
+            var id = await GetLoggedInUserDrustvoId();
+            ViewData["UserDrustvoId"] = id;
             return View(await cebelarstvo.ToListAsync());
         }
 
@@ -211,5 +213,17 @@ namespace BeeOrganizer.Controllers
             // Otherwise, return the Drustvo object
             return drustvo;
         }
+
+        public async Task<string?> GetLoggedInUserId()
+        {
+            var user = await _userManager.GetUserAsync(User);
+            if (user == null)
+            {
+                return null;
+            }
+
+            return user.Id;
+        }
+
     }
 }

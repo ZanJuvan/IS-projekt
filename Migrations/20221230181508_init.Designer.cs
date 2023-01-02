@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BeeOrganizer.Migrations
 {
     [DbContext(typeof(Cebelarstvo))]
-    [Migration("20221228143602_init")]
+    [Migration("20221230181508_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
