@@ -14,6 +14,7 @@ using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using System.Security.Cryptography;
 
 namespace BeeOrganizer.Controllers_Api
 {
@@ -27,11 +28,13 @@ namespace BeeOrganizer.Controllers_Api
         private readonly ILogger<LoginApiController> _logger;
         private readonly IConfiguration _config;
 
-        public LoginApiController(SignInManager<ApplicationUser> signInManager, ILogger<LoginApiController> logger, IConfiguration config)
+        public LoginApiController(Cebelarstvo context, SignInManager<ApplicationUser> signInManager, ILogger<LoginApiController> logger, IConfiguration config, UserManager<ApplicationUser> userManager)
         {
+            _context = context;
             _signInManager = signInManager;
             _logger = logger;
             _config = config;
+            _userManager = userManager;
         }
 
         [BindProperty]
@@ -58,28 +61,31 @@ namespace BeeOrganizer.Controllers_Api
             return Unauthorized();
         }
 
-        // If the authentication is successful, generate a JWT containing the user's claims
-        var claims = new[]
-        {
-            new Claim(JwtRegisteredClaimNames.Sub, user.Id)
-        };
-        var signingKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Jwt:Key"]));
-        var token = new JwtSecurityToken(
-            issuer: _config["Jwt:Issuer"],
-            audience: _config["Jwt:Audience"],
-            claims: claims,
-            expires: DateTime.Now.AddHours(1),
-            signingCredentials: new SigningCredentials(signingKey, SecurityAlgorithms.HmacSha256)
-        );
-        var tokenString = new JwtSecurityTokenHandler().WriteToken(token);
+        // If the authentication is successful, generate an API key
+        var apiKey = GenerateApiKey();
 
-        // Return the JWT to the client
+        // Return the API key to the client
         return Ok(new
         {
-            Token = tokenString
+            ApiKey = apiKey,
+            Id = user.Id,
+            Username = user.UserName,
+            FirstName = user.FirstName,
+            LastName = user.LastName
         });
-    }
+        }
 
+        private string GenerateApiKey()
+        {
+            // Generate a new API key using a secure random number generator
+            // You can use any method you like to generate the API key
+            using (var rng = RandomNumberGenerator.Create())
+            {
+                var bytes = new byte[16];
+                rng.GetBytes(bytes);
+                return Convert.ToBase64String(bytes);
+            }
+        }
 
     }
 }

@@ -50,6 +50,26 @@ namespace BeeOrganizer.Controllers_Api
             return cebeljnjak;
         }
 
+        // GET: api/CebeljnjakApi/5
+        [HttpGet("{userId}")]
+        public async Task<ActionResult<IEnumerable<Cebeljnjak>>> GetCebeljnjakByUser(int userId)
+        {
+          if (_context.Cebeljnjaki == null)
+          {
+              return NotFound();
+          }
+            var cebeljnjaki = await _context.Cebeljnjaki
+                    .Where(c => c.UporabnikId == userId)
+                    .ToListAsync();
+
+            if (cebeljnjaki == null)
+            {
+                return NotFound();
+            }
+
+            return cebeljnjaki;
+        }
+
         // PUT: api/CebeljnjakApi/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
