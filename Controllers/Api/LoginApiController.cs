@@ -73,12 +73,12 @@ namespace BeeOrganizer.Controllers_Api
                 }
                 else
                 {
-                    return NotFound();
+                    return NoContent();
                 }
             }
 
             // If we got this far, something failed, redisplay form
-            return BadRequest();
+            return NoContent();
         }
 
     }
