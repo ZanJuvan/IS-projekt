@@ -7,16 +7,13 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using BeeOrganizer.Data;
 using BeeOrganizer.Models;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.UI.Services;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.Extensions.Logging;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.IdentityModel.Tokens;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using System.Text;
 
 namespace BeeOrganizer.Controllers_Api
 {
@@ -28,58 +25,61 @@ namespace BeeOrganizer.Controllers_Api
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly ILogger<LoginApiController> _logger;
-        public LoginApiController(SignInManager<ApplicationUser> signInManager, ILogger<LoginApiController> logger)
+        private readonly IConfiguration _config;
+
+        public LoginApiController(SignInManager<ApplicationUser> signInManager, ILogger<LoginApiController> logger, IConfiguration config)
         {
             _signInManager = signInManager;
             _logger = logger;
+            _config = config;
         }
 
         [BindProperty]
-        public InputModel Input { get; set; }
+        
         public IList<AuthenticationScheme> ExternalLogins { get; set; }
-        public string ReturnUrl { get; set; }
+        
         [TempData]
         public string ErrorMessage { get; set; }
 
-        public class InputModel
+    public class LoginRequest
+    {
+        public string Username { get; set; }
+        public string Password { get; set; }
+    }
+
+
+    [HttpPost]
+    public async Task<IActionResult> Login([FromBody] LoginRequest request)
+    {
+        // Validate the username and password using your chosen authentication scheme
+        var user = await _userManager.FindByNameAsync(request.Username);
+        if (user == null || !await _userManager.CheckPasswordAsync(user, request.Password))
         {
-            [Required]
-            [EmailAddress]
-            public string Email { get; set; }
-
-            [Required]
-            [DataType(DataType.Password)]
-            public string Password { get; set; }
-
-            [Display(Name = "Remember me?")]
-            public bool RememberMe { get; set; }
+            return Unauthorized();
         }
 
-        [HttpGet("{email, pass}")]
-        public async Task<ActionResult<ApplicationUser>> GetUser(string email, string pass)
+        // If the authentication is successful, generate a JWT containing the user's claims
+        var claims = new[]
         {
-            ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
+            new Claim(JwtRegisteredClaimNames.Sub, user.Id)
+        };
+        var signingKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Jwt:Key"]));
+        var token = new JwtSecurityToken(
+            issuer: _config["Jwt:Issuer"],
+            audience: _config["Jwt:Audience"],
+            claims: claims,
+            expires: DateTime.Now.AddHours(1),
+            signingCredentials: new SigningCredentials(signingKey, SecurityAlgorithms.HmacSha256)
+        );
+        var tokenString = new JwtSecurityTokenHandler().WriteToken(token);
 
-            if (ModelState.IsValid)
-            {
-                // This doesn't count login failures towards account lockout
-                // To enable password failures to trigger account lockout, set lockoutOnFailure: true
-                var result = await _signInManager.PasswordSignInAsync(email, pass, false, lockoutOnFailure: false);
-                ApplicationUser user = await _userManager.GetUserAsync(User);
-                if (result.Succeeded && user != null)
-                {
-                    _logger.LogInformation("User logged in.");
-                    return user;
-                }
-                else
-                {
-                    return NoContent();
-                }
-            }
+        // Return the JWT to the client
+        return Ok(new
+        {
+            Token = tokenString
+        });
+    }
 
-            // If we got this far, something failed, redisplay form
-            return NoContent();
-        }
 
     }
 }
