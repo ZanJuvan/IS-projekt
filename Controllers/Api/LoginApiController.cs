@@ -51,7 +51,7 @@ namespace BeeOrganizer.Controllers_Api
     }
 
 
-    [HttpPost]
+    [HttpGet]
     public async Task<IActionResult> Login([FromBody] LoginRequest request)
     {
         // Validate the username and password using your chosen authentication scheme
