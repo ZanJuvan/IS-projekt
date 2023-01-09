@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace BeeOrganizer.Migrations
 {
-    public partial class init : Migration
+    public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -207,7 +207,7 @@ namespace BeeOrganizer.Migrations
                     ID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Naslov = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    UporabnikId = table.Column<int>(type: "int", nullable: false),
+                    UporabnikId = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ApplicationUserId = table.Column<string>(type: "nvarchar(450)", nullable: true)
                 },
                 constraints: table =>
@@ -246,17 +246,17 @@ namespace BeeOrganizer.Migrations
                 {
                     ID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    KratekOpis = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    CistostCebele = table.Column<bool>(type: "bit", nullable: false),
-                    Moc = table.Column<int>(type: "int", nullable: false),
-                    Mirnost = table.Column<bool>(type: "bit", nullable: false),
-                    Rojivost = table.Column<bool>(type: "bit", nullable: false),
-                    Zalega = table.Column<bool>(type: "bit", nullable: false),
-                    IzrezovanjeTrotovine = table.Column<bool>(type: "bit", nullable: false),
-                    ZalogaHrane = table.Column<bool>(type: "bit", nullable: false),
-                    SteviloVsSatnic = table.Column<int>(type: "int", nullable: false),
-                    donosMedu = table.Column<int>(type: "int", nullable: false),
-                    MenjavaMatice = table.Column<bool>(type: "bit", nullable: false),
+                    KratekOpis = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CistostCebele = table.Column<bool>(type: "bit", nullable: true),
+                    Moc = table.Column<int>(type: "int", nullable: true),
+                    Mirnost = table.Column<bool>(type: "bit", nullable: true),
+                    Rojivost = table.Column<bool>(type: "bit", nullable: true),
+                    Zalega = table.Column<bool>(type: "bit", nullable: true),
+                    IzrezovanjeTrotovine = table.Column<bool>(type: "bit", nullable: true),
+                    ZalogaHrane = table.Column<bool>(type: "bit", nullable: true),
+                    SteviloVsSatnic = table.Column<int>(type: "int", nullable: true),
+                    donosMedu = table.Column<int>(type: "int", nullable: true),
+                    MenjavaMatice = table.Column<bool>(type: "bit", nullable: true),
                     Datum = table.Column<DateTime>(type: "datetime2", nullable: false),
                     PanjId = table.Column<int>(type: "int", nullable: false)
                 },

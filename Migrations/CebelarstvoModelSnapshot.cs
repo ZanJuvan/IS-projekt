@@ -115,8 +115,9 @@ namespace BeeOrganizer.Migrations
                     b.Property<string>("Naslov")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("UporabnikId")
-                        .HasColumnType("int");
+                    b.Property<string>("UporabnikId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ID");
 
@@ -186,44 +187,43 @@ namespace BeeOrganizer.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
 
-                    b.Property<bool>("CistostCebele")
+                    b.Property<bool?>("CistostCebele")
                         .HasColumnType("bit");
 
                     b.Property<DateTime>("Datum")
                         .HasColumnType("datetime2");
 
-                    b.Property<bool>("IzrezovanjeTrotovine")
+                    b.Property<bool?>("IzrezovanjeTrotovine")
                         .HasColumnType("bit");
 
                     b.Property<string>("KratekOpis")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("MenjavaMatice")
+                    b.Property<bool?>("MenjavaMatice")
                         .HasColumnType("bit");
 
-                    b.Property<bool>("Mirnost")
+                    b.Property<bool?>("Mirnost")
                         .HasColumnType("bit");
 
-                    b.Property<int>("Moc")
+                    b.Property<int?>("Moc")
                         .HasColumnType("int");
 
                     b.Property<int>("PanjId")
                         .HasColumnType("int");
 
-                    b.Property<bool>("Rojivost")
+                    b.Property<bool?>("Rojivost")
                         .HasColumnType("bit");
 
-                    b.Property<int>("SteviloVsSatnic")
+                    b.Property<int?>("SteviloVsSatnic")
                         .HasColumnType("int");
 
-                    b.Property<bool>("Zalega")
+                    b.Property<bool?>("Zalega")
                         .HasColumnType("bit");
 
-                    b.Property<bool>("ZalogaHrane")
+                    b.Property<bool?>("ZalogaHrane")
                         .HasColumnType("bit");
 
-                    b.Property<int>("donosMedu")
+                    b.Property<int?>("donosMedu")
                         .HasColumnType("int");
 
                     b.HasKey("ID");
