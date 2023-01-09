@@ -25,10 +25,10 @@ namespace BeeOrganizer.Controllers_Api
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Panj>>> GetPanji()
         {
-          if (_context.Panji == null)
-          {
-              return NotFound();
-          }
+            if (_context.Panji == null)
+            {
+                return NotFound();
+            }
             return await _context.Panji.ToListAsync();
         }
 
@@ -36,10 +36,10 @@ namespace BeeOrganizer.Controllers_Api
         [HttpGet("{id}")]
         public async Task<ActionResult<Panj>> GetPanj(int id)
         {
-          if (_context.Panji == null)
-          {
-              return NotFound();
-          }
+            if (_context.Panji == null)
+            {
+                return NotFound();
+            }
             var panj = await _context.Panji.FindAsync(id);
 
             if (panj == null)
@@ -49,6 +49,26 @@ namespace BeeOrganizer.Controllers_Api
 
             return panj;
         }
+
+        [HttpGet("{cebeljnjakId}")]
+        public async Task<ActionResult<IEnumerable<Panj>>> GetPanjbyCebeljnjak(int cebeljnjakId)
+        {
+            if (_context.Panji == null)
+            {
+                return NotFound();
+            }
+            var panj = await _context.Panji
+                    .Where(c => c.CebeljnjakID == cebeljnjakId)
+                    .ToListAsync();
+
+            if (panj == null)
+            {
+                return NotFound();
+            }
+
+            return panj;
+        }
+
 
         // PUT: api/PanjApi/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754

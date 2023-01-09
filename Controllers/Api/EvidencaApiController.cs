@@ -10,7 +10,7 @@ using BeeOrganizer.Models;
 
 namespace BeeOrganizer.Controllers_Api
 {
-    [Route("api/[controller]")]
+    [Route("api/v1/Evidenvca")]
     [ApiController]
     public class EvidencaApiController : ControllerBase
     {
@@ -41,6 +41,25 @@ namespace BeeOrganizer.Controllers_Api
               return NotFound();
           }
             var evidenca = await _context.Evidenca.FindAsync(id);
+
+            if (evidenca == null)
+            {
+                return NotFound();
+            }
+
+            return evidenca;
+        }
+
+        [HttpGet("{panjId}")]
+        public async Task<ActionResult<IEnumerable<Evidenca>>> GetEvidencaByPanj(int panjId)
+        {
+          if (_context.Evidenca == null)
+          {
+              return NotFound();
+          }
+            var evidenca = await _context.Evidenca
+                    .Where(c => c.PanjId == panjId)
+                    .ToListAsync();
 
             if (evidenca == null)
             {

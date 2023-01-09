@@ -10,8 +10,8 @@ public class Cebeljnjak
     public string? Naslov { get; set; }
 
     [ForeignKey("ApplicationUser")]
-    public int UporabnikId { get; set; }
+    public String UporabnikId { get; set; }
 
-    public List<Panj> Panji { get; set; }
+    public List<Panj>? Panji { get; set; }
     
 }

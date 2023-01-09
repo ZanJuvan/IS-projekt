@@ -23,5 +23,5 @@ public class Evidenca
 
     [ForeignKey("Panj")]
     public int PanjId { get; set; }
-    public Panj Panj { get; set; }
+    public Panj? Panj { get; set; }
 }

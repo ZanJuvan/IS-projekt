@@ -9,9 +9,9 @@ public class Panj
     public int PanjID { get; set; }
     public string? Naziv { get; set; }
 
-    public List<Evidenca> Evidence { get; set;}
+    public List<Evidenca>? Evidence { get; set;}
     
     [ForeignKey("Cebeljnjak")]
     public int CebeljnjakID { get; set; }
-    public Cebeljnjak Cebeljnjak { get; set; }
+    public Cebeljnjak? Cebeljnjak { get; set; }
 }

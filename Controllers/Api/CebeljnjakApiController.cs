@@ -10,7 +10,7 @@ using BeeOrganizer.Models;
 
 namespace BeeOrganizer.Controllers_Api
 {
-    [Route("api/[controller]")]
+    [Route("api/v1/cabeljnjak")]
     [ApiController]
     public class CebeljnjakApiController : ControllerBase
     {
@@ -52,7 +52,7 @@ namespace BeeOrganizer.Controllers_Api
 
         // GET: api/CebeljnjakApi/5
         [HttpGet("{userId}")]
-        public async Task<ActionResult<IEnumerable<Cebeljnjak>>> GetCebeljnjakByUser(int userId)
+        public async Task<ActionResult<IEnumerable<Cebeljnjak>>> GetCebeljnjakByUser(String userId)
         {
           if (_context.Cebeljnjaki == null)
           {
