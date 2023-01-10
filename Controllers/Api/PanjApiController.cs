@@ -116,11 +116,11 @@ namespace BeeOrganizer.Controllers_Api
             return CreatedAtAction("GetPanj", new { id = panj.PanjID }, panj);
         }
 
-        [HttpPost]
+        [HttpPut]
         public async Task<ActionResult<Panj>> PostMorePanjs(int num, int beeHouseId)
         {
           Panj panj;
-          for(int i=0; i> num; i++)
+          for(int i=0; i< num; i++)
           {
             panj = new Panj();
             panj.Naziv = "Panj " +(i+1);
