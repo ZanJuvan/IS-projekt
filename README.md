@@ -28,6 +28,7 @@ Prijavljeni uporabniki pa imajo možnost ustvariti društvo. Če pa je uporabnik
 
 Mobilna aplikacija od uporabnikov zahteva najprej prijavo, da lahko nadaljujejo. Na začetku imamojo možnost med izbiro med svjimi čebeljnjaki ali ustvarjanjem novega. Na spodjem delu ekrana pa so tudi prikazani dogodki.
 Če kliknemo na čebeljnjak se pojavijo gumbi, kateri označjejo različne panje v danem čebeljnjaku. Nato lahko pridemo do evidenv panja, če kliknjemo na gumb z oznako panja. Tu imamo tudi možnost kreiranja novih evidenc.
+Povezava do git repozitorija mobilne aplikacije je <a href="https://github.com/AV-G/beeorganizer">tukaj</a>
 
 <h3>Podatkovna baza</h3>
 Spodaj je slika podatkovne baze za lažjo porabo API-jev ali lažje razumevanje same aplikacije.
