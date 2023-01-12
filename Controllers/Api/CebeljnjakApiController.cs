@@ -116,6 +116,33 @@ namespace BeeOrganizer.Controllers_Api
             return CreatedAtAction("GetCebeljnjak", new { id = cebeljnjak.ID }, cebeljnjak);
         }
 
+        [HttpPut]
+        public async Task<ActionResult<Cebeljnjak>> PostCebeljnjakCustom(string naziv, string userId, int num)
+        {
+            Cebeljnjak cebeljnjak = new Cebeljnjak();
+            if (_context.Cebeljnjaki == null)
+            {
+                return Problem("Entity set 'Cebelarstvo.Cebeljnjaki'  is null.");
+            }
+            cebeljnjak.UporabnikId = userId;
+            cebeljnjak.Naslov = naziv;
+            _context.Cebeljnjaki.Add(cebeljnjak);
+            await _context.SaveChangesAsync();
+
+            Panj panj;
+            for(int i=0; i< num; i++)
+            {
+                panj = new Panj();
+                panj.Naziv = "Panj " +(i+1);
+                panj.CebeljnjakID = cebeljnjak.ID;
+                panj.Cebeljnjak =  await _context.Cebeljnjaki.FindAsync(cebeljnjak.ID);
+                
+                _context.Panji.Add(panj);
+            }
+
+            return CreatedAtAction("GetCebeljnjak", new { id = cebeljnjak.ID }, cebeljnjak);
+        }
+
         // DELETE: api/CebeljnjakApi/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteCebeljnjak(int id)
