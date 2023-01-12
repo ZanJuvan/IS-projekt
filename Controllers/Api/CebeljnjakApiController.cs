@@ -117,7 +117,7 @@ namespace BeeOrganizer.Controllers_Api
         }
 
         [HttpPut]
-        public async Task<ActionResult<Cebeljnjak>> PostCebeljnjakCustom(string naziv, string userId, int num)
+        public async Task<IActionResult> PostCebeljnjakCustom(string naziv, string userId, int num)
         {
             Cebeljnjak cebeljnjak = new Cebeljnjak();
             if (_context.Cebeljnjaki == null)
@@ -139,10 +139,10 @@ namespace BeeOrganizer.Controllers_Api
                 panj.Cebeljnjak =  await _context.Cebeljnjaki.FindAsync(cebeljnjak.ID);
                 
                 _context.Panji.Add(panj);
+                await _context.SaveChangesAsync();
             }
-            await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetCebeljnjak", new { id = cebeljnjak.ID }, cebeljnjak);
+            return Ok();
         }
 
         // DELETE: api/CebeljnjakApi/5
