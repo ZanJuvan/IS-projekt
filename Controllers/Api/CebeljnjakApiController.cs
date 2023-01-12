@@ -140,6 +140,7 @@ namespace BeeOrganizer.Controllers_Api
                 
                 _context.Panji.Add(panj);
             }
+            await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetCebeljnjak", new { id = cebeljnjak.ID }, cebeljnjak);
         }
