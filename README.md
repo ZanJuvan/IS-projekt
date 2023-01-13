@@ -46,3 +46,4 @@ Spodaj je slika podatkovne baze za lažjo porabo API-jev ali lažje razumevanje 
 <h2>Zaključek</h2>
 
 Projekt je bil izpeljan kot projektna naloga pri predmetu informacijski sistemi na fakulteti za računalništvo in informatiko univerze v Ljubljani. Mentor projektne naloge je bil Miha Grohar.
+Avtor naloge Žan Juvan, pri android aplikaciji je pomgal Anže Vidmar.
