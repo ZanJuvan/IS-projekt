@@ -583,3 +583,8 @@ C:\Users\LENOVO\Documents\Git\IS-projekt\bin\Debug\net6.0\Microsoft.OpenApi.dll
 C:\Users\LENOVO\Documents\Git\IS-projekt\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\LENOVO\Documents\Git\IS-projekt\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\LENOVO\Documents\Git\IS-projekt\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+D:\Github\IS-projekt\obj\Debug\net6.0\staticwebassets\msbuild.BeeOrganizer.Microsoft.AspNetCore.StaticWebAssets.props
+D:\Github\IS-projekt\obj\Debug\net6.0\staticwebassets\msbuild.build.BeeOrganizer.props
+D:\Github\IS-projekt\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.BeeOrganizer.props
+D:\Github\IS-projekt\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.BeeOrganizer.props
+D:\Github\IS-projekt\obj\Debug\net6.0\staticwebassets.pack.json
