@@ -34,9 +34,9 @@ Mobilna aplikacija od uporabnikov zahteva najprej prijavo, da lahko nadaljujejo.
 Če kliknemo na čebeljnjak se pojavijo gumbi, kateri označjejo različne panje v danem čebeljnjaku. Nato lahko pridemo do evidenv panja, če kliknjemo na gumb z oznako panja. Tu imamo tudi možnost kreiranja novih evidenc.
 Povezava do git repozitorija mobilne aplikacije je <a href="https://github.com/AV-G/beeorganizer">tukaj</a>
 
-<div><img src="Images/app2.png" alt="drawing" width="33%"/>
-<img src="Images/App1.png" alt="drawing" width="33%"/>
-<img src="Images/app2.png" alt="drawing" width="33%"/></div>
+<div><img src="Images/app2.png" alt="drawing" width="32%"/>
+<img src="Images/App1.png" alt="drawing" width="32%"/>
+<img src="Images/app2.png" alt="drawing" width="32%"/></div>
 
 <h3>Podatkovna baza</h3>
 Spodaj je slika podatkovne baze za lažjo porabo API-jev ali lažje razumevanje same aplikacije.
